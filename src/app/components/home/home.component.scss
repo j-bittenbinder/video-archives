@@ -1,3 +1,12 @@
+.navbar {
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,55,66,1) 100%);
+    .logo {
+        width: 36px;
+        height: 32px;
+    }
+}
+
 .movie-card {
     width: 200px;
     border: 1px solid black;
@@ -6,4 +15,14 @@
 
 .poster {
     width: 150px;
+}
+
+.rounded-top {
+    border-top-left-radius: 1rem!important;
+    border-top-right-radius: 1rem!important;
+}
+
+.rounded-bottom {
+    border-bottom-right-radius: 1rem!important;
+    border-bottom-left-radius: 1rem!important;
 }

@@ -5,5 +5,19 @@
 }
 
 .poster {
-    width: 150px;
+    width: 200px;
+    height: 300px;
+    position: fixed;
+    top: 97px;
+}
+
+.picture-frame {
+    width: 218px;
+    height: 319px;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0), 0 6px 20px 0 rgb(0 0 0);
+}
+
+.background {
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,20,34,1) 100%);
 }

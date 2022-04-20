@@ -1,38 +1,32 @@
-<div class="input-group mb-3 p-4">
-    <div class="input-group-prepend">
-        <span class="input-group-text" id="inputGroup-sizing-default">
-            Pesquisar
-        </span>
-        <form #formSearch="ngForm" (ngSubmit)="onSubmit(formSearch)" novalidate>
-            <input  type="text" class="form-control" aria-label="Default" 
-            aria-describedby="inputGroup-sizing-default"
-            name="first" ngModel #first="ngModel"
-            (ngModelChange)="onSubmit(formSearch)">
-        </form>
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand font-header" href="#">
+        <img class="logo d-inline-block align-top" src="../../../assets/camera-gray.png"/>
+        video archives
+    </a>
+    <form #formSearch="ngForm" (ngSubmit)="onSubmit(formSearch)" novalidate>
+        <input  type="text" class="form-control" aria-label="Default" 
+        aria-describedby="inputGroup-sizing-default"
+        name="first" ngModel #first="ngModel"
+        (ngModelChange)="onSubmit(formSearch)">
+    </form>
+</nav>
+
+<div class="container">
+    <div class="list-group m-3 p-4">
+        <a *ngFor="let result of search?.results; index as resultIndex;
+        first as firstIndex; last as lastIndex;" 
+            class="list-group-item list-group-item-action"
+            [ngClass]="{'rounded-top': firstIndex, 'rounded-bottom': lastIndex}"
+            data-toggle="modal" data-target="#modalMovie"
+            (click)="viewDetails(resultIndex)">
+            {{ result.title }}
+        </a>
+    </div>
+    
+    <div class="modal fade" id="modalMovie" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <app-movie-modal
+            [movie]="movieDetails"
+        ></app-movie-modal>
     </div>
 </div>
-
-<div class="list-group m-3 p-4">
-    <a *ngFor="let result of search?.results; index as resultIndex" 
-        class="list-group-item list-group-item-action"
-        data-toggle="modal" data-target="#modalMovie"
-        (click)="viewDetails(resultIndex)">
-        {{ result.title }}
-    </a>
-</div>
-
-<div class="modal fade" id="modalMovie" tabindex="-1" role="dialog"
-    aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <app-movie-modal
-        [movie]="movieDetails"
-    ></app-movie-modal>
-</div>
-
-<!-- <div class="movie-card text-center p-2">
-    <img *ngIf="movies" 
-    class="poster rounded" 
-    [title]="movies?.title" 
-    [src]="'https://image.tmdb.org/t/p/w200' + movies?.poster_path"
-    />
-    <p>{{ movies?.title }}</p>
-</div> -->

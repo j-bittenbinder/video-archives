@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, NgForm } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 import { first } from 'rxjs';
 import { MovieModel, SearchMovieModel } from 'src/app/model/movie.model';
 import { ListMoviesService } from 'src/app/service/list-movies/list-movies.service';

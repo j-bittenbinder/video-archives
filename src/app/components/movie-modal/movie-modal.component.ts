@@ -13,8 +13,6 @@ export class MovieModalComponent implements OnInit {
 
   constructor() { }
 
-  public ngOnInit(): void {
-    console.log(this.movie);
-  }
+  public ngOnInit(): void {}
 
 }
