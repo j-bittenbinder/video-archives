@@ -32,4 +32,11 @@ describe('ListMoviesService', () => {
         service.getListMovies();
         expect(spyGetMovies).toHaveBeenCalled();   
     });
+
+    it('should call getSearchMovie', () => {
+        const search: string = 'nome-filme'
+        const spyGetMovies = spyOn(repository, 'searchMovie').and.callThrough();
+        service.getSearchMovie(search);
+        expect(spyGetMovies).toHaveBeenCalled();   
+    });
 });

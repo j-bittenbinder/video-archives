@@ -8,13 +8,13 @@ import { ListMoviesRepository } from "src/app/repository/list-movies/list-movies
 })
 
 export class ListMoviesService {
-  constructor(private productRepository: ListMoviesRepository) {}
+  constructor(private listMoviesRepository: ListMoviesRepository) {}
 
   public getListMovies(): Observable<MovieModel> {
-    return this.productRepository.getMovies();
+    return this.listMoviesRepository.getMovies();
   }
 
   public getSearchMovie(query: string): Observable<SearchMovieModel> {
-    return this.productRepository.searchMovie(query);
+    return this.listMoviesRepository.searchMovie(query);
   }
 }

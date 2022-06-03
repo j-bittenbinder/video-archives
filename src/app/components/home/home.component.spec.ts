@@ -1,6 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, NgForm } from '@angular/forms';
+import { of } from 'rxjs';
 import { SearchMovieModel } from 'src/app/model/movie.model';
 import { ListMoviesService } from 'src/app/service/list-movies/list-movies.service';
 
@@ -93,7 +94,7 @@ describe('HomeComponent', () => {
           first: 'title'
       }
     };
-    const spyListMovies = spyOn(listMoviesService, 'getSearchMovie').and.callThrough();
+    const spyListMovies = spyOn(listMoviesService, 'getSearchMovie').and.returnValue(of(search));
     component.onSubmit(formSearchParam);
     expect(spyListMovies).toHaveBeenCalled();
   });
