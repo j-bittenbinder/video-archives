@@ -5,7 +5,7 @@ import { MovieModel, SearchMovieModel } from 'src/app/model/movie.model';
 import { ListMoviesService } from 'src/app/service/list-movies/list-movies.service';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-home-page',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
@@ -33,5 +33,9 @@ export class HomeComponent implements OnInit {
 
   public viewDetails(index: number): void {
     this.movieDetails = this.search.results[index];
+  }
+
+  public noResults(): boolean {
+    return this.search.total_results === 0;
   }
 }

@@ -12,21 +12,30 @@
 </nav>
 
 <div class="container">
-    <div class="list-group m-3 p-4">
-        <a *ngFor="let result of search?.results; index as resultIndex;
-        first as firstIndex; last as lastIndex;" 
-            class="list-group-item list-group-item-action"
-            [ngClass]="{'rounded-top': firstIndex, 'rounded-bottom': lastIndex}"
-            data-toggle="modal" data-target="#modalMovie"
-            (click)="viewDetails(resultIndex)">
-            {{ result.title }}
-        </a>
-    </div>
-    
-    <div class="modal fade" id="modalMovie" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <app-movie-modal
-            [movie]="movieDetails"
-        ></app-movie-modal>
-    </div>
+    <div *ngIf="noResults(); then Message else List"></div>
+    <ng-template #Message>
+        <div class="alert alert-info mt-5 p-5" role="alert">
+            <h4 class="alert-heading font-header">Não foram encontrados resultados :(</h4>
+            <p class="font-text">Certifique-se que o nome do filme foi digitado corretamente</p>
+        </div>
+    </ng-template>
+
+    <ng-template #List>
+        <div  class="list-group m-3 p-4">
+            <a *ngFor="let result of search?.results; index as resultIndex;
+            first as firstIndex; last as lastIndex;" 
+                class="list-group-item list-group-item-action"
+                [ngClass]="{'rounded-top': firstIndex, 'rounded-bottom': lastIndex}"
+                data-toggle="modal" data-target="#modalMovie"
+                (click)="viewDetails(resultIndex)">
+                {{ result.title }}
+            </a>
+        </div>
+        <div class="modal fade" id="modalMovie" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <app-movie-modal
+                [movie]="movieDetails"
+            ></app-movie-modal>
+        </div>
+    </ng-template>
 </div>
