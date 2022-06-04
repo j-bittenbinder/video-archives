@@ -1,64 +1,78 @@
-export interface SearchMovieModel {
-    page: number;
-    results: Array<MovieModel>;
-    total_pages: number;
-    total_results: number;
+export class SearchMovieModel {
+    constructor(
+        public page: number = 0,
+        public results: Array<MovieModel> = [],
+        public total_pages: number = 0,
+        public total_results: number = 0
+    ) {}
 }
 
-export interface MovieModel {
-    adult: boolean;
-    backdrop_path: string;
-    belongs_to_collection: Collection;
-    budget: string;
-    genres: Array<Genre>;
-    homepage: string;
-    id: number;
-    imdb_id: string;
-    original_language: string;
-    original_title: string;
-    overview: string;
-    popularity: number;
-    poster_path: string;
-    production_companies: Array<ProductionCompanies>;
-    production_countries: Array<ProductionCountries>;
-    release_date: string;
-    revenue: number;
-    runtime: number;
-    spoken_languages: Array<Languages>;
-    status: string;
-    tagline: string;
-    title: string;
-    video: boolean;
-    vote_average: number;
-    vote_count: number;
+export class MovieModel {
+    constructor(
+        public adult: boolean = false,
+        public backdrop_path: string = '',
+        public belongs_to_collection = new Collection(),
+        public budget: string = '',
+        public genres: Array<Genre> = [new Genre()],
+        public homepage: string = '',
+        public id: number = 0,
+        public imdb_id: string = '',
+        public original_language: string = '',
+        public original_title: string = '',
+        public overview: string = '',
+        public popularity: number = 0,
+        public poster_path: string = '',
+        public production_companies: Array<ProductionCompanies> = [new ProductionCompanies()],
+        public production_countries: Array<ProductionCountries> = [new ProductionCountries()],
+        public release_date: string = '',
+        public revenue: number = 0,
+        public runtime: number = 0,
+        public spoken_languages: Array<Languages> = [new Languages()],
+        public status: string = '',
+        public tagline: string = '',
+        public title: string = '',
+        public video: boolean = false,
+        public vote_average: number = 0,
+        public vote_count: number = 0
+    ) {}
 }
 
-export interface Collection {
-    id: number;
-    name: string;
-    poster_path: string;
-    backdrop_path: string;
+export class Collection {
+    constructor(
+        public id: number = 0,
+        public name: string = '',
+        public poster_path: string = '',
+        public backdrop_path: string = ''
+    ) {}
 }
 
-export interface Genre {
-    id: number;
-    name: string;
+export class Genre {
+    constructor(
+        public id: number = 0,
+        public name: string = ''
+    ) {}
 }
 
-export interface ProductionCompanies {
-    id: number;
-    logo_path: any;
-    name: string;
-    origin_country: string;
+export class ProductionCompanies {
+    constructor(
+        public id: number = 0,
+        public logo_path: any = '',
+        public name: string = '',
+        public origin_country: string = ''
+    ) {}
 }
 
-export interface ProductionCountries {
-    iso_3166_1: string;
-    name: string;
+export class ProductionCountries {
+    constructor(
+        public iso_3166_1: string = '',
+        public name: string = ''
+    ) {}
 }
 
-export interface Languages {
-    english_name: string;
-    iso_639_1: string;
-    name: string;
+export class Languages {
+    constructor(
+        public english_name: string = '',
+        public iso_639_1: string = '',
+        public name: string = ''
+    ) {}
 }

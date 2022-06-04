@@ -10,8 +10,8 @@ import { ListMoviesService } from 'src/app/service/list-movies/list-movies.servi
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  public movieDetails!: MovieModel;
-  public search!: SearchMovieModel;
+  public movieDetails = new MovieModel();
+  public search = new SearchMovieModel();
 
   constructor(
     public listMoviesService: ListMoviesService,

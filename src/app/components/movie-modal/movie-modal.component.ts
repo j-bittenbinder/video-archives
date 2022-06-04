@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MovieModel, SearchMovieModel } from 'src/app/model/movie.model';
+import { MovieModel } from 'src/app/model/movie.model';
 
 @Component({
   selector: 'app-movie-modal',
@@ -8,11 +8,16 @@ import { MovieModel, SearchMovieModel } from 'src/app/model/movie.model';
 })
 
 export class MovieModalComponent implements OnInit {
-  @Input() 
-  public movie!: MovieModel;
+  @Input() public movie = new MovieModel();
 
   constructor() { }
 
   public ngOnInit(): void {}
 
+  public hasPoster(): boolean {
+    if (this.movie.poster_path)
+    return true
+
+    return false
+  }
 }
