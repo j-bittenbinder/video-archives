@@ -12,7 +12,7 @@
 </nav>
 
 <div class="container">
-    <div *ngIf="noResults(); then Message else List"></div>
+    <div *ngIf="noResults(formSearch); then Message else List"></div>
     <ng-template #Message>
         <div class="alert alert-info mt-5 p-5" role="alert">
             <h4 class="alert-heading font-header">Não foram encontrados resultados :(</h4>

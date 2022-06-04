@@ -111,8 +111,13 @@ describe('HomeComponent', () => {
   });
 
   it('should call noResults', () => {
+    const formSearchParam = <NgForm>{
+      value: {
+          first: ''
+      }
+    };
     component.search = search;
-    component.noResults();
+    component.noResults(formSearchParam);
     expect(component.search.total_results).toEqual(0);
   });
 

@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit {
     this.movieDetails = this.search.results[index];
   }
 
-  public noResults(): boolean {
-    return this.search.total_results === 0;
+  public noResults(form: NgForm): boolean {
+    return this.search.total_results === 0 && form.value.first !== '';
   }
 }
